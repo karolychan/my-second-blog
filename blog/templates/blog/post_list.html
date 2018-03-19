@@ -1,20 +1,40 @@
-<!DOCTYPE html>
+
+{% extends 'blog/base.html' %}
+<!--<!DOCTYPE html>
+{% load staticfiles %}
 <html>
 <head>
+
 	<title>Django girls blog
 	</title>
-	
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/
+	bootstrap-theme.min.css">
+	<link rel="stylesheet" href="{% static 'css/blog.css' %}">
+	<link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
 
 </head>
 <body>
-	<div>
-		<h1><a href="">Django Girls blog </a> </h1> 
+
+	<div class="page-header">
+		<h1><a href="/">Django Girls blog </a> </h1> 
 	</div>
-	<div>
+	
+	<div class="content container">
+    <div class="row">
+        <div class="col-md-8">
+-->
+{% block content %}
 		{% for post in posts %}
-    <div>
+    <div class="post">
+        <div class="date">
         <p>published: {{ post.published_date }}</p>
-        <h1><a href="">{{ post.title }}</a></h1>
+    </div>
+       <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
+
         <p>{{ post.text|linebreaksbr }}</p>
     </div>
 {% endfor %}
@@ -23,8 +43,11 @@
 		<p> published:18/03</p> 
 		<h2><a href=""> My second post on my second-blog</a></h2>
 		<p>  Aliquam etiam feugiat malesuada egestas platea quisque sed, scelerisque platea senectus primis libero etiam. </p>
-	-->
-	</div>
+	
+</div>
+</div>
+</div>
 
 </body>
-</html>
+</html> -->
+{% endblock %}
